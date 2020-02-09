@@ -2,6 +2,7 @@ import React from "react";
 import ReactDom from "react-dom";
 import SignUp from "./components/signup.js"
 import Login from "./components/login.js"
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import {
 
     Navbar, Nav, Form, FormControl, Button
@@ -24,7 +25,7 @@ class Body1 extends React.Component {
     Header = () => {
         return (
             <div>
-                <> 
+                <>
                     <Navbar bg="dark" variant="dark">
                         <Nav className="mr-auto">
                             <Nav.Link href="/index">Book Store</Nav.Link>
@@ -33,24 +34,24 @@ class Body1 extends React.Component {
                         </Nav>
                     </Navbar>
                 </>
-                    <div >
-                        <Switch>
-                            <Route exact path="/signup" component={SignUp} />
-                            <Route exact path="/login" component={Login} />
-                        </Switch>
+                <div >
+                    <Switch>
+                        <Route exact path="/signup" component={SignUp} />
+                        <Route exact path="/login" component={Login} />
+                    </Switch>
 
-                    </div>
                 </div>
-                )
-            }
+            </div>
+        )
+    }
 
     render() {
         return (
             <Router>
-                    <this.Header />
-                </Router>
-                )
-            }
-        }
+                <this.Header />
+            </Router>
+        )
+    }
+}
 
 ReactDom.render(<Body1 />, document.getElementById("body1"));
