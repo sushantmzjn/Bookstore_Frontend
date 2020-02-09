@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDom from "react-dom";
 import SignUp from "./components/signup.js"
+import Login from "./components/login.js"
 import {
 
     Navbar, Nav, Form, FormControl, Button
@@ -23,34 +24,33 @@ class Body1 extends React.Component {
     Header = () => {
         return (
             <div>
-                <>
+                <> 
                     <Navbar bg="dark" variant="dark">
                         <Nav className="mr-auto">
+                            <Nav.Link href="/index">Book Store</Nav.Link>
                             <Nav.Link as={Link} to="/signup">Sign Up</Nav.Link>
+                            <Nav.Link as={Link} to="/login">Login</Nav.Link>
                         </Nav>
-                        <Form inline>
-                            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                            <Button variant="outline-info">Search</Button>
-                        </Form>
                     </Navbar>
                 </>
-                <div >
-                    <Switch>
-                        <Route exact path="/signup" component={SignUp} />
-                    </Switch>
+                    <div >
+                        <Switch>
+                            <Route exact path="/signup" component={SignUp} />
+                            <Route exact path="/login" component={Login} />
+                        </Switch>
 
+                    </div>
                 </div>
-            </div>
-        )
-    }
+                )
+            }
 
     render() {
         return (
             <Router>
-                <this.Header />
-            </Router>
-        )
-    }
-}
+                    <this.Header />
+                </Router>
+                )
+            }
+        }
 
 ReactDom.render(<Body1 />, document.getElementById("body1"));
