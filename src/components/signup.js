@@ -1,46 +1,99 @@
 import React from "react";
 import { Row, Col, Container } from "react-bootstrap";
+import React, { Component } from "react";
+import { Row, Col, Container, Button, Form } from "react-bootstrap";
 import { } from "react-router-dom";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBInput } from 'mdbreact';
+import axios from "axios";
 
 
-
-class SignUp extends React.Component {
+export default class Signup extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            fullName: '',
+            address: '',
+            username: '',
+            gender: '',
+            password: '',
+            confirm_password: '',
+            isRegistered: false
+        }
     }
+
+    FullnameHandler = (e) => {
+        this.setState({ fullName: e.target.value });
+    }
+
+    AddressHandler = (e) => {
+        this.setState({ address: e.target.value });
+    }
+
+    UsernameHandler = (e) => {
+        this.setState({ username: e.target.value });
+    }
+
+    GenderHandler = (e) => {
+        this.setState({ gender: e.target.value });
+    }
+
+    PasswordHandler = (e) => {
+        this.setState({ password: e.target.value });
+    }
+
+    ConfirmPasswordHandler = (e) => {
+        this.setState({ confirm_password: e.target.value });
+    }
+
+    //submit handler for user
+
+    submitHandler = (e) => {
+        e.preventDefault();
+        var userData = {
+            fullName: this.state.fullName,
+            address: this.state.address,
+            username: this.state.username,
+            gender: this.state.gender,
+            password: this.state.password,
+            confirm_password: this.state.confirm_password,
+            isRegistered: true
+        }
+
+        console.log(userData);
+        axios.post('http://localhost:3012/users/signup', userData)
+            .then((response) => {
+                console.log(response.data);
+                localStorage.setItem('token', response.data.token)
+
+            }).catch((err) => { console.log(err) })
+    };
 
     render() {
         return (
             <MDBContainer>
                 <MDBRow>
                     <MDBCol md="4">
-                        <form>
+                        <Form onSubmit={this.submitHandler}>
                             <p className="h5 text-center mb-4">Sign up</p>
-                            <div className="grey-text">
-                                <MDBInput label="FullName" icon="user" group type="text" validate error="wrong"
-                                    success="right" />
-                                <MDBInput label="Username" icon="user" group type="text" validate error="wrong"
-                                    success="right" />
-                                <MDBInput label="Address" icon="user" group type="text" validate error="wrong"
-                                    success="right" />
-                                <MDBCol>
-                                    <p>Please select your gender:</p>
-                                    <input type="radio" name="gender" value="male" /> Male<br></br>
-                                    <input type="radio" name="gender" value="female" /> Female
-                                    </MDBCol>
-                                <MDBInput label="Password" icon="exclamation-triangle" group type="text" validate
-                                    error="wrong" success="right" />
-                                <MDBInput label="Confirm password" icon="lock" group type="password" validate />
-                            </div>
-                            <div className="text-center">
-                                <MDBBtn color="primary">Register</MDBBtn>
-                            </div>
-                        </form>
+
+                            <MDBInput label="FullName" type="text" value={this.state.fullName} onChange={this.FullnameHandler} required />
+                            <MDBInput label="Address" type="text" value={this.state.address} onChange={this.AddressHandler} required />
+                            <MDBInput label="Username" type="text" value={this.state.username} onChange={this.UsernameHandler} required />
+                            <MDBCol>
+                                <p>Please select your gender:</p>
+                                <input type="radio" name="gender" value="male" checked={this.state.gender === 'male'} onChange={this.GenderHandler} /> Male<br></br>
+                                <input type="radio" name="gender" value="female" checked={this.state.gender === 'female'} onChange={this.GenderHandler} />Female
+                             </MDBCol>
+                            <MDBInput label="Password" type="password" value={this.state.password} onChange={this.PasswordHandler} />
+                            <MDBInput label="Confirm password" type="password" value={this.state.confirm_password} onChange={this.ConfirmPasswordHandler} />
+                            <Button type="submit" color="primary" onClick={this.signup}>Register</Button>
+                        </Form>
                     </MDBCol>
                 </MDBRow>
             </MDBContainer>
         )
     }
 }
+
 export default SignUp;
