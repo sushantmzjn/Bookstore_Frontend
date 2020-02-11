@@ -1,6 +1,8 @@
 import React from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import { } from "react-router-dom";
+import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBInput } from 'mdbreact';
+
 
 
 class SignUp extends React.Component {
@@ -10,34 +12,34 @@ class SignUp extends React.Component {
 
     render() {
         return (
-            <form>
-            <h3>Sign Up</h3>
-
-            <div className="form-group">
-                <label>First name</label>
-                <input type="text" className="form-control" placeholder="First name" />
-            </div>
-
-            <div className="form-group">
-                <label>Last name</label>
-                <input type="text" className="form-control" placeholder="Last name" />
-            </div>
-
-            <div className="form-group">
-                <label>Email address</label>
-                <input type="email" className="form-control" placeholder="Enter email" />
-            </div>
-
-            <div className="form-group">
-                <label>Password</label>
-                <input type="password" className="form-control" placeholder="Enter password" />
-            </div>
-
-            <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
-            <p className="forgot-password text-right">
-                Already registered <a href="#">sign in?</a>
-            </p>
-        </form>
+            <MDBContainer>
+                <MDBRow>
+                    <MDBCol md="4">
+                        <form>
+                            <p className="h5 text-center mb-4">Sign up</p>
+                            <div className="grey-text">
+                                <MDBInput label="FullName" icon="user" group type="text" validate error="wrong"
+                                    success="right" />
+                                <MDBInput label="Username" icon="user" group type="text" validate error="wrong"
+                                    success="right" />
+                                <MDBInput label="Address" icon="user" group type="text" validate error="wrong"
+                                    success="right" />
+                                <MDBCol>
+                                    <p>Please select your gender:</p>
+                                    <input type="radio" name="gender" value="male" /> Male<br></br>
+                                    <input type="radio" name="gender" value="female" /> Female
+                                    </MDBCol>
+                                <MDBInput label="Password" icon="exclamation-triangle" group type="text" validate
+                                    error="wrong" success="right" />
+                                <MDBInput label="Confirm password" icon="lock" group type="password" validate />
+                            </div>
+                            <div className="text-center">
+                                <MDBBtn color="primary">Register</MDBBtn>
+                            </div>
+                        </form>
+                    </MDBCol>
+                </MDBRow>
+            </MDBContainer>
         )
     }
 }

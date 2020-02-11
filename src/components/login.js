@@ -1,7 +1,8 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
-
-
+import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBInput } from 'mdbreact';
+import "bootstrap-css-only/css/bootstrap.min.css";
+import "mdbreact/dist/css/mdb.css";
 class Login extends React.Component {
     constructor(props) {
         super(props);
@@ -9,26 +10,25 @@ class Login extends React.Component {
 
     render() {
         return (
-            <Form>
-                <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Username</Form.Label>
-                    <Form.Control type="text" placeholder="Enter your username" />
-                    <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-    </Form.Text>
-                </Form.Group>
-                <Form.Group controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Enter Password" />
-                </Form.Group>
-                <Form.Group controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
-  </Button>
-            </Form>
+            <MDBContainer>
+                <MDBRow>
+                    <MDBCol md="4">
+                        <form>
+                            <p className="h5 text-center mb-4">Sign in</p>
+                            <div className="grey-text">
+                                <MDBInput label="Type your username" icon="envelope" type="text" validate error="wrong"
+                                    success="right" />
+                                <MDBInput label="Type your password" icon="lock" type="password" validate />
+                            </div>
+                            <div className="text-center">
+                                <MDBBtn>Login</MDBBtn>
+                            </div>
+                        </form>
+                    </MDBCol>
+                </MDBRow>
+            </MDBContainer>
         )
     }
 
-} export default Login;
+}
+export default Login;
