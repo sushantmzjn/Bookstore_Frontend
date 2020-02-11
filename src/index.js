@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDom from "react-dom";
-import SignUp from "./components/signup.js"
+import Signup from "./components/Signup.js"
 import Login from "./components/login.js"
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
@@ -38,7 +38,7 @@ class Body1 extends React.Component {
                 </>
                 <div >
                     <Switch>
-                        <Route exact path="/signup" component={SignUp} />
+                        <Route exact path="/signup" component={Signup} />
                         <Route exact path="/login" component={Login} />
                     </Switch>
 
