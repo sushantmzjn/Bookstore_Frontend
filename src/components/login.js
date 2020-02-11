@@ -3,9 +3,39 @@ import { Form, Button } from "react-bootstrap";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBInput } from 'mdbreact';
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
-class Login extends React.Component {
+import axios from "axios";
+
+export default class Login extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            username: '',
+            password: ''
+        }
+    }
+
+    usernameHandler = (e) => {
+        this.setState({ username: e.target.value });
+    }
+    passwordHandler = (e) => {
+        this.setState({ password: e.target.value });
+    }
+
+    loginHandler = (e) => {
+        e.preventDefault();
+        var userData = {
+            username: this.state.username,
+            password: this.state.password,
+            isOneline: true
+        }
+        console.log(userData);
+        axios.post('http://localhost:3012/users/login', userData)
+            .then((response) => {
+                console.log(response.data);
+                localStorage.setItem('token', response.data.token)
+            }).catch((err) => { console.log(err) })
+
     }
 
     render() {
@@ -13,15 +43,14 @@ class Login extends React.Component {
             <MDBContainer>
                 <MDBRow>
                     <MDBCol md="4">
-                        <form>
+                        <form onSubmit={this.loginHandler}>
                             <p className="h5 text-center mb-4">Sign in</p>
                             <div className="grey-text">
-                                <MDBInput label="Type your username" icon="envelope" type="text" validate error="wrong"
-                                    success="right" />
-                                <MDBInput label="Type your password" icon="lock" type="password" validate />
+                                <MDBInput label="Type your username" type="text" onChange={this.usernameHandler} required />
+                                <MDBInput label="Type your password" type="password" onChange={this.passwordHandler} required />
                             </div>
                             <div className="text-center">
-                                <MDBBtn>Login</MDBBtn>
+                                <Button type="submit" color="primary" onClick={this.login}>Login</Button>
                             </div>
                         </form>
                     </MDBCol>
@@ -31,4 +60,3 @@ class Login extends React.Component {
     }
 
 }
-export default Login;

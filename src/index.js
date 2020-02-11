@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDom from "react-dom";
 import Signup from "./components/Signup.js"
-import Login from "./components/login.js"
+import Login from "./components/Login.js"
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 
