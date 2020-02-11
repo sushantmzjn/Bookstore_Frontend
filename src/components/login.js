@@ -11,16 +11,15 @@ class Login extends React.Component {
         return (
             <Form>
                 <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control type="text" placeholder="Enter your username" />
                     <Form.Text className="text-muted">
                         We'll never share your email with anyone else.
     </Form.Text>
                 </Form.Group>
-
                 <Form.Group controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control type="password" placeholder="Enter Password" />
                 </Form.Group>
                 <Form.Group controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Check me out" />
