@@ -1,13 +1,12 @@
 import React from "react";
-import { Row, Col, Container } from "react-bootstrap";
-import React, { Component } from "react";
 import { Row, Col, Container, Button, Form } from "react-bootstrap";
-import { } from "react-router-dom";
+import {Route } from "react-router-dom";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBInput } from 'mdbreact';
 import axios from "axios";
+import Header from "./Header";
 
 
-export default class Signup extends Component {
+export default class Signup extends React.Component {
     constructor(props) {
         super(props);
 
@@ -71,20 +70,19 @@ export default class Signup extends Component {
 
     render() {
         return (
+            <React.Fragment>
+                <Route component={Header}/>
             <MDBContainer>
                 <MDBRow>
                     <MDBCol md="4">
                         <Form onSubmit={this.submitHandler}>
                             <p className="h5 text-center mb-4">Sign up</p>
-
                             <MDBInput label="FullName" type="text" value={this.state.fullName} onChange={this.FullnameHandler} required />
                             <MDBInput label="Address" type="text" value={this.state.address} onChange={this.AddressHandler} required />
                             <MDBInput label="Username" type="text" value={this.state.username} onChange={this.UsernameHandler} required />
-                            <MDBCol>
-                                <p>Please select your gender:</p>
-                                <input type="radio" name="gender" value="male" checked={this.state.gender === 'male'} onChange={this.GenderHandler} /> Male<br></br>
-                                <input type="radio" name="gender" value="female" checked={this.state.gender === 'female'} onChange={this.GenderHandler} />Female
-                             </MDBCol>
+                            <p>Please select your gender:</p>
+                            <input type="radio" name="gender" value="male" checked={this.state.gender === 'male'} onChange={this.GenderHandler} /> Male<br></br>
+                            <input type="radio" name="gender" value="female" checked={this.state.gender === 'female'} onChange={this.GenderHandler} />Female
                             <MDBInput label="Password" type="password" value={this.state.password} onChange={this.PasswordHandler} />
                             <MDBInput label="Confirm password" type="password" value={this.state.confirm_password} onChange={this.ConfirmPasswordHandler} />
                             <Button type="submit" color="primary" onClick={this.signup}>Register</Button>
@@ -92,8 +90,8 @@ export default class Signup extends Component {
                     </MDBCol>
                 </MDBRow>
             </MDBContainer>
+            </React.Fragment>
         )
     }
 }
 
-export default SignUp;
