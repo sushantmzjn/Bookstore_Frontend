@@ -1,11 +1,11 @@
 import React from "react";
-import {Route} from "react-router-dom";
+import { Route } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBInput } from 'mdbreact';
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 import axios from "axios";
-import Header from "./Header";
+import Header from "./headers/Header";
 
 
 export default class Login extends React.Component {
@@ -37,7 +37,7 @@ export default class Login extends React.Component {
             .then((response) => {
                 console.log(response.data);
                 localStorage.setItem('token', response.data.token)
-                location.href="./userdashboard"
+                location.href = "./userdashboard"
             }).catch((err) => { console.log(err) })
 
     }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import Userheader from './Userheader';
+import Userheader from './headers/Userheader';
 import { Route } from "react-router-dom";
 
 export default class Profile extends Component{

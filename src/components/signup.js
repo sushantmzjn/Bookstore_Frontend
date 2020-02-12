@@ -3,7 +3,7 @@ import { Row, Col, Container, Button, Form } from "react-bootstrap";
 import {Route } from "react-router-dom";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBInput } from 'mdbreact';
 import axios from "axios";
-import Header from "./Header";
+import Header from "./headers/Header";
 
 
 export default class Signup extends React.Component {
