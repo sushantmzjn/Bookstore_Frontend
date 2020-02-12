@@ -20,8 +20,14 @@ module.exports = {
                 // exclude:/node_modules/,
                 use: ["style-loader", "css-loader"]
             },
+            // {
+            //     test: /\.(png|jpg|svg)$/, loader: 'url-loader?limit=8192'
+            // }
             {
-                test: /\.(png|jpg|svg)$/, loader: 'url-loader?limit=8192'
+                test: /\.(jpg|gif|png|svg)$/,
+                use: {
+                    loader: 'url-loader',
+                }
             }
         ]
     }, devServer: {

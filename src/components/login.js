@@ -37,6 +37,7 @@ export default class Login extends React.Component {
             .then((response) => {
                 console.log(response.data);
                 localStorage.setItem('token', response.data.token)
+                location.href="./userdashboard"
             }).catch((err) => { console.log(err) })
 
     }
