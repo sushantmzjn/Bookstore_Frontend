@@ -83,19 +83,19 @@ export default class Productlist extends Component {
             })
     }
 
-    titleUpdateHandler = (e) =>{
-        this.setState({selectedList:{...this.state.selectedList,["title"]: e.target.value}})
+    titleUpdateHandler = (e) => {
+        this.setState({ selectedList: { ...this.state.selectedList, ["title"]: e.target.value } })
     }
-    descriptionUpdateHandler = (e) =>{
-        this.setState({selectedList:{...this.state.selectedList,["description"]: e.target.value}})
+    descriptionUpdateHandler = (e) => {
+        this.setState({ selectedList: { ...this.state.selectedList, ["description"]: e.target.value } })
     }
-    
-    priceUpdateHandler = (e) =>{
-        this.setState({selectedList:{...this.state.selectedList,["price"]: e.target.value}})
+
+    priceUpdateHandler = (e) => {
+        this.setState({ selectedList: { ...this.state.selectedList, ["price"]: e.target.value } })
     }
-    
-    categoriesUpdateHandler = (e) =>{
-        this.setState({selectedList:{...this.state.selectedList,["categories"]: e.target.value}})
+
+    categoriesUpdateHandler = (e) => {
+        this.setState({ selectedList: { ...this.state.selectedList, ["categories"]: e.target.value } })
     }
 
     render() {
