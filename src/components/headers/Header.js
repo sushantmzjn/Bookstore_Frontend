@@ -32,6 +32,7 @@ class Body1 extends React.Component {
                   
                             <Nav.Link as={Link} to="/signup">Sign Up</Nav.Link>
                             <Nav.Link as={Link} to="/login">Login</Nav.Link>
+                            <Nav.Link as={Link} to="/adminlogin">Admin login</Nav.Link>
                         </Nav>
                     </Navbar>
                 </>
