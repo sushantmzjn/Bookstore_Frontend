@@ -57,7 +57,7 @@ export default class Admindashboard extends Component {
                 <Route component={AdminHeader} />
                 <Container>
                     <div>
-                        <h1>User lsit</h1>
+                        <h1>User List</h1>
                     </div>
                     <Table>
                         <thead>
