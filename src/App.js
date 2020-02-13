@@ -1,5 +1,6 @@
 import React from "react";
-import PrivateRoute from "./components/authroute/PrivateRoute"
+import PrivateRoute from "./components/authroute/PrivateRoute";
+import Userprivateroute from "./components/authroute/Userprivateroute";
 
 import {
     BrowserRouter as Router,
@@ -17,6 +18,7 @@ import Profile from "./components/Profile";
 import Admindashboard from "./components/Admindashboard";
 import Adminlogin from "./components/adminlogin"
 import Customerlist from "./components/Customerlist";
+import Productlist from "./components/Productlist";
 
 function App() {
     return (
@@ -28,11 +30,12 @@ function App() {
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/adminlogin" component={Adminlogin} />
                     {/* user controller */}
-                    <Route exact path="/userdashboard" component={Userdashboard} />
-                    <Route exact path="/profile" component={Profile} />
+                    <Userprivateroute exact path="/userdashboard" component={Userdashboard} />
+                    <Userprivateroute exact path="/profile" component={Profile} />
                     {/* admin controller */}
                     <PrivateRoute exact path="/admindashboard" component={Admindashboard} />
                     <PrivateRoute exact path="/customerlist" component={Customerlist} />
+                    <PrivateRoute exact path="/productlist" component={Productlist} />
 
                 </Switch>
             </Router>
