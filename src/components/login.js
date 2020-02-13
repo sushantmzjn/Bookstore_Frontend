@@ -36,8 +36,8 @@ export default class Login extends React.Component {
         axios.post('http://localhost:3012/users/login', userData)
             .then((response) => {
                 console.log(response.data);
-                localStorage.setItem('token', response.data.token)
-                location.href = "./userdashboard"
+                localStorage.setItem('usertoken', response.data.token)
+                location.href = "/userdashboard"
             }).catch((err) => { console.log(err) })
 
     }
