@@ -140,7 +140,7 @@ export default class Productlist extends Component {
                         <Modal.Body>
                             <Form>
                                 <Form.Control type="text" value={this.state.selectedList.title} onChange={this.titleUpdateHandler} /><br></br>
-                                <Form.Control type="" value={this.state.selectedList.description} onChange={this.descriptionUpdateHandler} /><br></br>
+                                <Form.Control type="text" value={this.state.selectedList.description} onChange={this.descriptionUpdateHandler} /><br></br>
                                 <Form.Control type="text" value={this.state.selectedList.price} onChange={this.priceUpdateHandler} /><br></br>
                                 <Form.Control type="text" value={this.state.selectedList.categories} onChange={this.categoriesUpdateHandler} />
                             </Form>
