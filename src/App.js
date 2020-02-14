@@ -19,6 +19,7 @@ import Admindashboard from "./components/Admindashboard";
 import Adminlogin from "./components/adminlogin"
 import Customerlist from "./components/Customerlist";
 import Productlist from "./components/Productlist";
+import Orderlist from "./components/Orderlist";
 
 function App() {
     return (
@@ -36,6 +37,7 @@ function App() {
                     <PrivateRoute exact path="/admindashboard" component={Admindashboard} />
                     <PrivateRoute exact path="/customerlist" component={Customerlist} />
                     <PrivateRoute exact path="/productlist" component={Productlist} />
+                    <PrivateRoute exact path="/orderlist" component={Orderlist} />
 
                 </Switch>
             </Router>
