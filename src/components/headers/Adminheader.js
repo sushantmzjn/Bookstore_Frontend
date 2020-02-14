@@ -33,6 +33,7 @@ export default class Adminheader extends React.Component {
                             <Nav.Link as={Link} to="/admindashboard">Home</Nav.Link>
                             <Nav.Link as={Link} to="/productlist">Product List</Nav.Link>
                             <Nav.Link as={Link} to="#">Add product</Nav.Link>
+                            <Nav.Link as={Link} to="orderlist">Order List</Nav.Link>
                             <Nav.Link as={Link} to="/customerlist">Customer List</Nav.Link>
                         </Nav>
                     </Navbar>
