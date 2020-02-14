@@ -66,7 +66,7 @@ export default class Admindashboard extends Component {
                                 <th>Address</th>
                                 <th>Username</th>
                                 <th>Gender</th>
-                                <th>Delete</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
