@@ -42,10 +42,10 @@ export default class Addproduct extends Component {
             categories: this.state.categories
         }
         console.log(addProduct);
-        Axios.post('http://localhost:3012/book', addProduct, this.state.config)
+        Axios.post(`http://localhost:3012/book`, addProduct, this.state.config)
             .then((response) => {
                 console.log(response.data);
-                localStorage.setItem('token', response.data.token)
+                location.href="/addproduct"
             }).catch((err) => {
                 console.log(err)
             })
@@ -68,7 +68,7 @@ export default class Addproduct extends Component {
                                 <input type="radio" name="thriller" value="thriller" checked={this.state.categories === 'thriller'} onChange={this.categoryHandler} /> thriller<br></br>
                                 <input type="radio" name="horror" value="horror" checked={this.state.categories === 'horror'} onChange={this.categoryHandler} /> horror<br></br>
                                 <input type="radio" name="romantic" value="romantic" checked={this.state.categories === 'romantic'} onChange={this.categoryHandler} />romantic
-                                 <Button type="submit" color="primary" onClick={this.addProduct}>Post</Button>
+                                 <Button type="submit" color="primary" onClick={this.Addproduct}>Post</Button>
                             </Form>
                         </MDBCol>
                     </MDBRow>
