@@ -22,46 +22,61 @@ export default class Userdashboard extends Component {
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         Axios.get(
             "http://localhost:3012/book",
             this.state.config
-        ).then((response)=>{
+        ).then((response) => {
             this.setState({
                 lists: response.data
             });
             console.log(response.data);
-        }).catch((err)=>{
+        }).catch((err) => {
             console.log(err);
         })
     }
-    handleOpen = (productid) =>{
+    handleOpen = (productid) => {
         this.setState({
-            show:true,
-            selectedList: this.state.lists.find((list)=>{
+            show: true,
+            selectedList: this.state.lists.find((list) => {
                 return list._id === productid
             })
         })
     }
-    handleClose = () =>{
+    handleClose = () => {
         this.setState({
-            show:false
+            show: false
         })
     }
 
-    orderHandler = (productorder) =>{
+    orderHandler = (productorder) => {
         console.log(this.state.lists);
         Axios.post(
             `http://localhost:3012/bookorder`,
             this.state.selectedList,
             this.state.config
         )
-        .then((response)=>{
-            location.href="/userdashboard"
-        })
-        .catch((err)=>{
-            console.log(err)
-        })
+            .then((response) => {
+                location.href = "/userdashboard"
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
+
+    cartHandler = (productcart) => {
+        console.log(this.state.lists);
+        Axios.post(
+            `http://localhost:3012/cart`,
+            this.state.selectedList,
+            this.state.config
+        )
+            .then((response) => {
+                location.href = "/userdashboard"
+            })
+            .catch((err) => {
+                console.log(err)
+            })
     }
 
 
@@ -101,21 +116,22 @@ export default class Userdashboard extends Component {
                             }
                         </tbody>
                     </Table>
-                    <Modal show = {this.state.show} onHide={this.handleClose}>
+                    <Modal show={this.state.show} onHide={this.handleClose}>
                         <Modal.Header closeButton>
                             <Modal.Title>Place an Order</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
                             <Form>
-                                <Form.Control type="text" defaultValue={this.state.selectedList.title}/><br></br>
-                                <Form.Control type="text" defaultValue={this.state.selectedList.description}/><br></br>
-                                <Form.Control type="text" defaultValue={this.state.selectedList.price}/><br></br>
-                                <Form.Control type="text" defaultValue={this.state.selectedList.categories}/>
+                                <Form.Control type="text" defaultValue={this.state.selectedList.title} /><br></br>
+                                <Form.Control type="text" defaultValue={this.state.selectedList.description} /><br></br>
+                                <Form.Control type="text" defaultValue={this.state.selectedList.price} /><br></br>
+                                <Form.Control type="text" defaultValue={this.state.selectedList.categories} />
                             </Form>
                         </Modal.Body>
                         <Modal.Footer>
                             <Button variant="secondary" onClick={this.handleClose}>Cancel</Button>
-                            <Button variant="success" onClick={()=>this.orderHandler(this.state.selectedList._id)}>Order</Button>
+                            <Button variant="success" onClick={() => this.orderHandler(this.state.selectedList._id)}>Order</Button>
+                            <Button variant="success" onClick={() => this.cartHandler(this.state.selectedList._id)}>Add to Cart</Button>
                         </Modal.Footer>
                     </Modal>
                 </Container>
