@@ -32,8 +32,8 @@ class Body1 extends React.Component {
                         <Nav className="mr-auto">
                             <Nav.Link as={Link} to="/userdashboard">Home</Nav.Link>
                             <Nav.Link as={Link} to="/profile">Profile</Nav.Link>
-                            <Nav.Link as={Link} to="#">My Orders</Nav.Link>
-                            <Nav.Link as={Link} to="#">Cart</Nav.Link>
+                            <Nav.Link as={Link} to="/userorderlist">My Orders</Nav.Link>
+                            <Nav.Link as={Link} to="/usercart">My Cart</Nav.Link>
                             <Nav.Link as={Link} to="#">Logout</Nav.Link>
                         </Nav>
                     </Navbar>
