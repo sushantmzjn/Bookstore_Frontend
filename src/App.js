@@ -14,12 +14,15 @@ import Signup from "./components/signup";
 
 import Userdashboard from "./components/UserDashboard";
 import Profile from "./components/Profile";
+import Userorderlist from "./components/Userorderlist";
+import Usercart from "./components/Usercart";
 
 import Admindashboard from "./components/Admindashboard";
 import Adminlogin from "./components/adminlogin"
 import Customerlist from "./components/Customerlist";
 import Productlist from "./components/Productlist";
 import Orderlist from "./components/Orderlist";
+import Addproduct from "./components/Addproduct";
 
 function App() {
     return (
@@ -33,11 +36,14 @@ function App() {
                     {/* user controller */}
                     <Userprivateroute exact path="/userdashboard" component={Userdashboard} />
                     <Userprivateroute exact path="/profile" component={Profile} />
+                    <Userprivateroute exact path="/userorderlist" component={Userorderlist} />
+                    <Userprivateroute exact path="/usercart" component={Usercart} />
                     {/* admin controller */}
                     <PrivateRoute exact path="/admindashboard" component={Admindashboard} />
                     <PrivateRoute exact path="/customerlist" component={Customerlist} />
                     <PrivateRoute exact path="/productlist" component={Productlist} />
                     <PrivateRoute exact path="/orderlist" component={Orderlist} />
+                    <PrivateRoute exact path="/addproduct" component={Addproduct} />
 
                 </Switch>
             </Router>
