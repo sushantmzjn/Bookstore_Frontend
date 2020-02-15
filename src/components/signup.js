@@ -63,7 +63,7 @@ export default class Signup extends React.Component {
         axios.post('http://localhost:3012/users/signup', userData)
             .then((response) => {
                 console.log(response.data);
-                localStorage.setItem('token', response.data.token)
+                localStorage.setItem('usertoken', response.data.token)
 
             }).catch((err) => { console.log(err) })
     };
