@@ -24,6 +24,12 @@ class Body1 extends React.Component {
         super(props);
     }
 
+    logoutHandle = (e) =>{
+        e.preventDefault();
+        localStorage.removeItem('usertoken');
+        location.href='./login'
+    }
+
     render() {
         return (
             <div>
@@ -34,7 +40,7 @@ class Body1 extends React.Component {
                             <Nav.Link as={Link} to="/profile">Profile</Nav.Link>
                             <Nav.Link as={Link} to="/userorderlist">My Orders</Nav.Link>
                             <Nav.Link as={Link} to="/usercart">My Cart</Nav.Link>
-                            <Nav.Link as={Link} to="#">Logout</Nav.Link>
+                            <Nav.Link onClick={this.logoutHandle}>Logout</Nav.Link>
                         </Nav>
                     </Navbar>
                 </>
